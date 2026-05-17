@@ -373,17 +373,37 @@
   <div class="projects-grid">
 
     <div class="project-card">
-      <div class="project-img">Project Image / Figure</div>
-      <div class="project-body">
+      <div class="project-body" style="padding-bottom:.5rem;">
         <h3>Fragility & Resilience of Marine Vessels</h3>
         <p>Developed machine-learning-assisted frameworks for quantifying the fragility, functionality, and long-term resilience of ships under extreme hazards, including novel damage state definitions from low-cycle fatigue analysis. Funded by the Office of Naval Research.</p>
-        <div class="tags">
+        <div class="tags" style="margin-bottom:1rem;">
           <span class="tag">FEM</span>
           <span class="tag">Machine Learning</span>
           <span class="tag">Fragility Analysis</span>
           <span class="tag">ONR Funded</span>
         </div>
       </div>
+      <div style="position:relative;background:#000;overflow:hidden;" id="slideshow2">
+        <div id="slides2" style="display:flex;transition:transform .5s ease;">
+          <img src="https://drive.google.com/thumbnail?id=1K5RWckIqsw-j4NvQU5rINat0fOAZCWGy&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
+          <img src="https://drive.google.com/thumbnail?id=1n88_37kpyvLYsNGAe7QZbVvkabELHmmf&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
+        </div>
+        <button onclick="moveSlide2(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8249;</button>
+        <button onclick="moveSlide2(1)"  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8250;</button>
+        <div style="position:absolute;bottom:8px;width:100%;display:flex;justify-content:center;gap:6px;">
+          <span class="dot2" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:1;cursor:pointer;" onclick="goSlide2(0)"></span>
+          <span class="dot2" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:.4;cursor:pointer;" onclick="goSlide2(1)"></span>
+        </div>
+      </div>
+      <script>
+        var cur2 = 0;
+        function updateSlide2() {
+          document.getElementById('slides2').style.transform = 'translateX(-' + (cur2 * 100) + '%)';
+          document.querySelectorAll('.dot2').forEach(function(d,i){ d.style.opacity = i===cur2 ? '1' : '.4'; });
+        }
+        function moveSlide2(dir) { cur2 = (cur2 + dir + 2) % 2; updateSlide2(); }
+        function goSlide2(n) { cur2 = n; updateSlide2(); }
+      </script>
     </div>
 
     <div class="project-card">
@@ -427,17 +447,42 @@
     </div>
 
     <div class="project-card">
-      <div class="project-img">Project Image / Figure</div>
-      <div class="project-body">
+      <div class="project-body" style="padding-bottom:.5rem;">
         <h3>Integrated Performance-Based Design Framework (Ongoing)</h3>
         <p>Developing a unified probabilistic framework for marine vessels structured around three domains — hazard, structural response, and loss — adapted from performance-based earthquake engineering principles.</p>
-        <div class="tags">
+        <div class="tags" style="margin-bottom:1rem;">
           <span class="tag">PBEE</span>
           <span class="tag">Fragility Curves</span>
           <span class="tag">Loss Estimation</span>
           <span class="tag">Ongoing</span>
         </div>
       </div>
+      <!-- Image Slideshow -->
+      <div style="position:relative;background:#000;overflow:hidden;" id="slideshow">
+        <div id="slides" style="display:flex;transition:transform .5s ease;">
+          <img src="https://drive.google.com/thumbnail?id=1CGPT1SVRnJDTL1fG9UXgjtAYnyDUZ1jT&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
+          <img src="https://drive.google.com/thumbnail?id=122nssPLXeY-2DHuNz0HcAw7Ous0YO_nC&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
+          <img src="https://drive.google.com/thumbnail?id=1SPRYaFbK1HbL2o0s-5FoOo14oaVd-Z7_&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
+        </div>
+        <!-- Prev/Next buttons -->
+        <button onclick="moveSlide(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8249;</button>
+        <button onclick="moveSlide(1)"  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8250;</button>
+        <!-- Dots -->
+        <div style="position:absolute;bottom:8px;width:100%;display:flex;justify-content:center;gap:6px;">
+          <span class="dot" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:1;cursor:pointer;" onclick="goSlide(0)"></span>
+          <span class="dot" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:.4;cursor:pointer;" onclick="goSlide(1)"></span>
+          <span class="dot" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:.4;cursor:pointer;" onclick="goSlide(2)"></span>
+        </div>
+      </div>
+      <script>
+        var cur = 0;
+        function updateSlide() {
+          document.getElementById('slides').style.transform = 'translateX(-' + (cur * 100) + '%)';
+          document.querySelectorAll('.dot').forEach(function(d,i){ d.style.opacity = i===cur ? '1' : '.4'; });
+        }
+        function moveSlide(dir) { cur = (cur + dir + 3) % 3; updateSlide(); }
+        function goSlide(n) { cur = n; updateSlide(); }
+      </script>
     </div>
 
     <div class="project-card">
