@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dr. Aws Idris | Civil Engineering</title>
+<style>
+  :root {
+    --navy: #1a2e4a;
+    --blue: #2563a8;
+    --blue-light: #3b82c4;
+    --gray-dark: #374151;
+    --gray: #6b7280;
+    --gray-light: #f1f5f9;
+    --border: #d1d9e6;
+    --white: #ffffff;
+    --accent: #e8f0fb;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Georgia', serif; color: var(--gray-dark); background: var(--white); }
+
+  nav {
+    position: fixed; top:0; width:100%; background: var(--navy);
+    z-index:100; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .nav-inner {
+    max-width:1100px; margin:auto; padding:0 2rem;
+    display:flex; justify-content:space-between; align-items:center; height:60px;
+  }
+  .nav-logo { color:var(--white); font-size:1.1rem; font-weight:bold; letter-spacing:.5px; }
+  .nav-links { display:flex; gap:1.8rem; list-style:none; }
+  .nav-links a {
+    color:#cbd5e1; text-decoration:none; font-family: 'Arial', sans-serif;
+    font-size:.85rem; letter-spacing:.5px; text-transform:uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color:var(--white); }
+
+  section { padding: 90px 2rem 70px; max-width:1100px; margin:auto; }
+  .section-label { font-family:'Arial',sans-serif; font-size:.75rem; text-transform:uppercase; letter-spacing:2px; color:var(--blue); margin-bottom:.5rem; }
+  h2 { font-size:2rem; color:var(--navy); margin-bottom:1rem; }
+  .divider { width:50px; height:3px; background:var(--blue); margin-bottom:2rem; }
+
+  #hero {
+    max-width:100%; padding:0;
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 60%, #2563a8 100%);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+  }
+  .hero-inner { max-width:1100px; margin:auto; padding:2rem; display:flex; align-items:center; gap:4rem; flex-wrap:wrap; }
+  .hero-photo {
+    width:200px; height:200px; border-radius:50%;
+    background:rgba(255,255,255,0.1); border:4px solid rgba(255,255,255,0.3);
+    display:flex; align-items:center; justify-content:center;
+    color:rgba(255,255,255,0.5); font-size:.85rem; text-align:center;
+    flex-shrink:0; font-family:Arial,sans-serif;
+  }
+  .hero-text h1 { font-size:2.8rem; color:var(--white); line-height:1.2; }
+  .hero-text .title { color:#93c5fd; font-size:1.15rem; margin:.5rem 0 1rem; font-family:Arial,sans-serif; }
+  .hero-text .tagline { color:#cbd5e1; font-size:1rem; max-width:520px; line-height:1.7; margin-bottom:1.8rem; }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn { padding:.7rem 1.6rem; border-radius:4px; text-decoration:none; font-family:Arial,sans-serif; font-size:.9rem; font-weight:bold; cursor:pointer; border:none; display:inline-block; transition: all .2s; }
+  .btn-primary { background:var(--blue-light); color:var(--white); }
+  .btn-primary:hover { background:#2563a8; }
+  .btn-outline { background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.5); }
+  .btn-outline:hover { border-color:var(--white); }
+
+  #about { background:var(--white); }
+  .about-grid { display:grid; grid-template-columns:2fr 1fr; gap:3rem; align-items:start; }
+  .about-text p { line-height:1.85; color:var(--gray-dark); margin-bottom:1rem; font-size:1.02rem; }
+  .about-info { background:var(--gray-light); border-radius:8px; padding:1.5rem; border-left:4px solid var(--blue); }
+  .about-info h3 { font-size:1rem; color:var(--navy); margin-bottom:1rem; font-family:Arial,sans-serif; }
+  .info-item { display:flex; flex-direction:column; margin-bottom:.9rem; }
+  .info-label { font-size:.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--gray); font-family:Arial,sans-serif; }
+  .info-val { font-size:.95rem; color:var(--gray-dark); }
+
+  #research { background:var(--gray-light); max-width:100%; }
+  .research-areas { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-bottom:3rem; max-width:1100px; margin-left:auto; margin-right:auto; }
+  .research-card { background:var(--white); border-radius:8px; padding:1.5rem; border-top:4px solid var(--blue); box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .research-card h3 { color:var(--navy); margin-bottom:.6rem; font-size:1.05rem; }
+  .research-card p { color:var(--gray); font-size:.92rem; line-height:1.7; }
+
+  .pub-list { max-width:1100px; margin:0 auto; }
+  .pub-list h3 { font-size:1.2rem; color:var(--navy); margin-bottom:1rem; }
+  .pub-item { background:var(--white); border-radius:6px; padding:1.2rem 1.5rem; margin-bottom:1rem; border-left:3px solid var(--blue-light); box-shadow:0 1px 4px rgba(0,0,0,0.05); }
+  .pub-title { font-size:1rem; color:var(--navy); margin-bottom:.3rem; }
+  .pub-authors { font-size:.85rem; color:var(--gray); font-style:italic; margin-bottom:.3rem; font-family:Arial,sans-serif; }
+  .pub-journal { font-size:.85rem; color:var(--blue); font-family:Arial,sans-serif; }
+  .pub-link { float:right; font-size:.8rem; color:var(--blue); text-decoration:none; font-family:Arial,sans-serif; }
+  .pub-link:hover { text-decoration:underline; }
+
+  #projects { background:var(--white); }
+  .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+  .project-card { border:1px solid var(--border); border-radius:8px; overflow:hidden; transition: box-shadow .2s, transform .2s; }
+  .project-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.1); transform:translateY(-3px); }
+  .project-img { height:140px; background:linear-gradient(135deg,var(--navy),var(--blue-light)); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.4); font-family:Arial,sans-serif; font-size:.85rem; }
+  .project-body { padding:1.2rem; }
+  .project-body h3 { color:var(--navy); margin-bottom:.5rem; font-size:1rem; }
+  .project-body p { color:var(--gray); font-size:.9rem; line-height:1.65; margin-bottom:.8rem; }
+  .tags { display:flex; flex-wrap:wrap; gap:.4rem; }
+  .tag { background:var(--accent); color:var(--blue); border-radius:20px; padding:.2rem .7rem; font-size:.75rem; font-family:Arial,sans-serif; }
+
+  #cv { background:var(--gray-light); max-width:100%; }
+  .cv-inner { max-width:1100px; margin:auto; padding:90px 2rem 70px; }
+  .cv-download { margin-bottom:2.5rem; }
+  .cv-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+  .cv-section h3 { font-size:1.1rem; color:var(--navy); margin-bottom:1.2rem; padding-bottom:.5rem; border-bottom:2px solid var(--border); font-family:Arial,sans-serif; }
+  .timeline-item { position:relative; padding-left:1.2rem; margin-bottom:1.4rem; border-left:2px solid var(--blue-light); }
+  .timeline-item::before { content:''; position:absolute; left:-5px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--blue); }
+  .tl-date { font-size:.78rem; color:var(--gray); font-family:Arial,sans-serif; text-transform:uppercase; letter-spacing:.5px; }
+  .tl-title { font-size:.98rem; color:var(--navy); font-weight:bold; margin:.2rem 0 .1rem; }
+  .tl-sub { font-size:.88rem; color:var(--gray); }
+
+  #contact { background:var(--white); }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  .contact-info p { color:var(--gray); line-height:1.75; margin-bottom:1.5rem; }
+  .contact-links { display:flex; flex-direction:column; gap:.8rem; }
+  .contact-link { display:flex; align-items:center; gap:.8rem; text-decoration:none; color:var(--gray-dark); font-family:Arial,sans-serif; font-size:.95rem; }
+  .contact-link:hover { color:var(--blue); }
+  .contact-icon { width:38px; height:38px; background:var(--accent); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--blue); font-size:1rem; }
+  .contact-form { display:flex; flex-direction:column; gap:1rem; }
+  .form-group { display:flex; flex-direction:column; gap:.3rem; }
+  .form-group label { font-family:Arial,sans-serif; font-size:.85rem; color:var(--gray-dark); }
+  .form-group input, .form-group textarea { padding:.7rem 1rem; border:1px solid var(--border); border-radius:5px; font-size:.95rem; font-family:Georgia,serif; color:var(--gray-dark); transition: border-color .2s; }
+  .form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--blue); }
+  .form-group textarea { resize:vertical; min-height:120px; }
+
+  footer { background:var(--navy); color:#94a3b8; text-align:center; padding:1.5rem; font-family:Arial,sans-serif; font-size:.85rem; }
+
+  @media(max-width:768px) {
+    .hero-inner { flex-direction:column; text-align:center; gap:2rem; }
+    .hero-text h1 { font-size:2rem; }
+    .hero-btns { justify-content:center; }
+    .about-grid, .cv-grid, .contact-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Dr. Aws Idris</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <img src="https://drive.google.com/thumbnail?id=1zQp0h-NO0rZRqZ5M-loDuocW2Oj3UHZ5&sz=w400" alt="Dr. Aws Idris" style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.3);flex-shrink:0;"/>
+    <div class="hero-text">
+      <h1>Dr. Aws Idris</h1>
+      <p class="title">PhD in Civil Engineering &nbsp;|&nbsp; Oklahoma State University, 2025</p>
+      <p class="tagline">
+        Advancing the safety and resilience of marine vessels and civil infrastructure through probabilistic analysis, high-fidelity finite element simulations, and machine learning.
+      </p>
+      <div class="hero-btns">
+        <a href="#research" class="btn btn-primary">View My Research</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About Me</p>
+  <h2>Who I Am</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I am a structural engineer and researcher with a PhD in Civil Engineering from Oklahoma State University (2025), where I worked under the supervision of Dr. Mohamed Soliman. My doctoral research focused on the probabilistic performance-based assessment of marine vessels under extreme loading conditions, funded by the Office of Naval Research.
+      </p>
+      <p>
+        I developed novel machine-learning-assisted frameworks for quantifying the fragility, functionality, and long-term resilience of marine vessels. My work introduced new damage state definitions based on low-cycle fatigue analysis, probabilistic demand models, and advanced variance-based sensitivity analyses using high-fidelity finite element simulations.
+      </p>
+      <p>
+        Prior to my PhD, I earned a Master of Science in Structural Engineering from Jordan University of Science and Technology (2019), where I developed a novel finite beam element using the flexibility method to solve nonlinear structural problems with reduced computational cost. I also hold a Bachelor of Science in Civil Engineering from Yarmouk University (2017), where I graduated first among 181 students.
+      </p>
+      <p>
+        I am currently seeking opportunities in academia or research where I can expand my work on performance-based design of marine and civil infrastructure systems, with growing interest in climate resilience and physics-informed machine learning.
+      </p>
+    </div>
+    <div class="about-info">
+      <h3>Quick Info</h3>
+      <div class="info-item">
+        <span class="info-label">Degree</span>
+        <span class="info-val">PhD, Civil Engineering</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">University</span>
+        <span class="info-val">Oklahoma State University</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Graduation</span>
+        <span class="info-val">2025</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Specialization</span>
+        <span class="info-val">Structural Engineering & Reliability</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Location</span>
+        <span class="info-val">Stillwater, Oklahoma, USA</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Open To</span>
+        <span class="info-val">Postdoc, Faculty, Industry Research</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" style="padding:0;">
+<div style="max-width:1100px;margin:auto;padding:90px 2rem 40px;">
+  <p class="section-label">Research</p>
+  <h2>Research Interests</h2>
+  <div class="divider"></div>
+</div>
+<div class="research-areas">
+  <div class="research-card">
+    <h3>🚢 Performance-Based Design of Marine Vessels</h3>
+    <p>Developing integrated probabilistic frameworks for assessing the fragility, functionality, and resilience of ships under extreme hazards such as storms, collisions, and grounding — addressing the limitations of prescriptive design standards.</p>
+  </div>
+  <div class="research-card">
+    <h3>🤖 Machine Learning for Structural Engineering</h3>
+    <p>Leveraging advanced machine learning algorithms and variance-based sensitivity analysis to build efficient predictive models for structural demand and reliability, reducing reliance on computationally expensive simulations.</p>
+  </div>
+  <div class="research-card">
+    <h3>🔩 Finite Element Simulations & Reliability</h3>
+    <p>High-fidelity FEM modeling of ship hull girders and steel connections to quantify the effects of geometric imperfections, welding-induced residual stresses, and material nonlinearity on structural reliability.</p>
+  </div>
+  <div class="research-card">
+    <h3>🌍 Infrastructure Resilience & Climate Change</h3>
+    <p>Investigating the long-term resilience of bridges, vessels, and coastal/offshore structures under climate-induced stressors, including developing physics-informed machine learning models for deterioration prediction.</p>
+  </div>
+  <div class="research-card">
+    <h3>⚓ Aluminum Hull Reliability & Corrosion</h3>
+    <p>Quantifying the reliability of aluminum ship hulls by accounting for the effects of sensitization and corrosion on material properties and structural performance under monotonic and cyclic loading conditions.</p>
+  </div>
+  <div class="research-card">
+    <h3>🌊 Probabilistic Hazard & Loss Assessment</h3>
+    <p>Extending performance-based earthquake engineering formulations to the marine context, integrating hazard characterization, structural demand modeling, and loss estimation into a unified probabilistic framework.</p>
+  </div>
+</div>
+
+<div class="pub-list" style="padding:0 2rem 70px;">
+  <h3>Publications</h3>
+
+  <div class="pub-item">
+    <a href="https://doi.org/10.1016/j.oceaneng.2026.125400" class="pub-link" target="_blank">DOI ↗</a>
+    <div class="pub-title">Functionality and long-term resilience quantification of ship hulls under ultimate bending failure considering uncertainties</div>
+    <div class="pub-authors">Idris, A., & Soliman, M.</div>
+    <div class="pub-journal">Ocean Engineering, 357, 125400 · 2026</div>
+  </div>
+
+  <div class="pub-item">
+    <a href="https://doi.org/10.12989/scs.2026.58.2.277" class="pub-link" target="_blank">DOI ↗</a>
+    <div class="pub-title">Experimental and numerical analyses of the behavior of single shear connections combining pretensioned high-strength bolts and longitudinal fillet welds</div>
+    <div class="pub-authors">Park, S., Idris, A., Soliman, M., Bennett, C.W., & Russell, B.W.</div>
+    <div class="pub-journal">Steel and Composite Structures, 58(2), 277–300 · 2026</div>
+  </div>
+
+  <div class="pub-item">
+    <a href="#" class="pub-link">In Press</a>
+    <div class="pub-title">Machine Learning-Assisted Fragility Quantification of Marine Vessels Under Hazards</div>
+    <div class="pub-authors">Idris, A., & Soliman, M.</div>
+    <div class="pub-journal">16th International Symposium on Practical Design of Ships and Other Floating Structures (PRADS 2025), Ann Arbor, MI · 2026</div>
+  </div>
+
+  <div class="pub-item">
+    <a href="https://doi.org/10.1016/j.marstruc.2025.103944" class="pub-link" target="_blank">DOI ↗</a>
+    <div class="pub-title">Probabilistic demand models and analytical fragility quantification for ship hulls under ultimate bending conditions</div>
+    <div class="pub-authors">Idris, A., & Soliman, M.</div>
+    <div class="pub-journal">Marine Structures, 106, 103944 · 2026</div>
+  </div>
+
+  <div class="pub-item">
+    <a href="https://doi.org/10.1080/15732479.2025.2470855" class="pub-link" target="_blank">DOI ↗</a>
+    <div class="pub-title">A comprehensive framework for fragility quantification of marine vessels</div>
+    <div class="pub-authors">Idris, A., Soliman, M., & Tamimi, M.F.</div>
+    <div class="pub-journal">Structure and Infrastructure Engineering, 1–22 · 2025</div>
+  </div>
+
+  <div class="pub-item">
+    <a href="https://doi.org/10.1016/j.strusafe.2025.102575" class="pub-link" target="_blank">DOI ↗</a>
+    <div class="pub-title">Sensitivity of ship hull reliability considering geometric imperfections and residual stresses</div>
+    <div class="pub-authors">Idris, A., & Soliman, M.</div>
+    <div class="pub-journal">Structural Safety, 102575 · 2025</div>
+  </div>
+
+  <div class="pub-item">
+    <a href="https://doi.org/10.1016/j.engstruct.2024.118435" class="pub-link" target="_blank">DOI ↗</a>
+    <div class="pub-title">Numerical investigation of the behavior of combination connections with pretensioned high-strength bolts and longitudinal fillet welds</div>
+    <div class="pub-authors">Shen, L., Idris, A., Soliman, M., Waite, C.D., & Russell, B.W.</div>
+    <div class="pub-journal">Engineering Structures, 315, 118435 · 2024</div>
+  </div>
+
+  <div class="pub-item">
+    <a href="https://doi.org/10.1016/j.istruc.2021.01.023" class="pub-link" target="_blank">DOI ↗</a>
+    <div class="pub-title">Flexibility-based large increment method for nonlinear analysis of Timoshenko beam structures controlled by a bilinear material model</div>
+    <div class="pub-authors">Barham, W.S., & Idris, A.A.</div>
+    <div class="pub-journal">Structures, 30, 678–691 · 2021</div>
+  </div>
+
+  <!-- CONFERENCE PRESENTATIONS -->
+  <div class="pub-list" style="padding:0 2rem 2rem;">
+    <h3>Conference Presentations</h3>
+
+    <div class="pub-item">
+      <div class="pub-title">Sensitivity analysis of the reliability of corroded ship hulls considering initial geometric imperfections and residual stresses</div>
+      <div class="pub-authors">Idris, A., & Soliman, M.</div>
+      <div class="pub-journal">Oral Presentation · Engineering Mechanics Institute & Probabilistic Mechanics and Reliability Conference · Chicago, IL · May 28–31, 2024</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Reliability and ultimate failure analysis of ship hulls under cyclic bending loads</div>
+      <div class="pub-authors">Ibrahim, M., Idris, A., & Soliman, M.</div>
+      <div class="pub-journal">Oral Presentation · Engineering Mechanics Institute & Probabilistic Mechanics and Reliability Conference · Chicago, IL · May 28–31, 2024</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">A novel fragility framework for assessing the performance of marine vessels</div>
+      <div class="pub-authors">Idris, A., & Soliman, M.</div>
+      <div class="pub-journal">Oral Presentation · Engineering Mechanics Institute Conference · Atlanta, GA · June 7–9, 2023</div>
+    </div>
+  </div>
+
+  <!-- DISSERTATIONS, THESES & REPORTS -->
+  <div class="pub-list" style="padding:0 2rem 70px;">
+    <h3>Dissertations, Theses & Reports</h3>
+
+    <div class="pub-item">
+      <div class="pub-title">A Comprehensive Fragility Quantification Framework for Marine Structures Under Hazards</div>
+      <div class="pub-authors">Idris, A.A.K.</div>
+      <div class="pub-journal">Doctoral Dissertation · Oklahoma State University · 2025</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">A Fragility-Based Approach Supporting Enhanced Resilience of Manned and Unmanned Surface Vessels Under Uncertain Demand</div>
+      <div class="pub-authors">Soliman, M., & Idris, A.</div>
+      <div class="pub-journal">Technical Report Submitted to the Office of Naval Research (ONR) · 2025</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Numerical Simulation of the Behavior of Buckling-Restrained Braces Under AISC Seismic Testing Protocol</div>
+      <div class="pub-authors">Soliman, M., Tamimi, M.F., Idris, A., & Soliman, A.</div>
+      <div class="pub-journal">Technical Report Submitted to Seismic Bracing Company · 2022</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Flexibility-Based Large Increment Method for Solving Different Nonlinear Structural Problems</div>
+      <div class="pub-authors">Idris, A.A.K.</div>
+      <div class="pub-journal">Master's Thesis · Jordan University of Science and Technology · 2019</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Projects</p>
+  <h2>Key Projects</h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Fragility & Resilience of Marine Vessels</h3>
+        <p>Developed machine-learning-assisted frameworks for quantifying the fragility, functionality, and long-term resilience of ships under extreme hazards, including novel damage state definitions from low-cycle fatigue analysis. Funded by the Office of Naval Research.</p>
+        <div class="tags">
+          <span class="tag">FEM</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Fragility Analysis</span>
+          <span class="tag">ONR Funded</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Ship Hull Girder Reliability</h3>
+        <p>Quantified the effects of initial geometric imperfections and welding-induced residual stresses on ship hull girder reliability using high-fidelity FEM simulations and variance-based sensitivity analysis assisted by machine learning.</p>
+        <div class="tags">
+          <span class="tag">Reliability Analysis</span>
+          <span class="tag">FEM</span>
+          <span class="tag">Sensitivity Analysis</span>
+          <span class="tag">Residual Stress</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Steel Connection Performance</h3>
+        <p>Numerical and experimental investigation of the performance of steel connections under extreme loading, contributing to improved design guidelines for structural steel systems.</p>
+        <div class="tags">
+          <span class="tag">Experimental Testing</span>
+          <span class="tag">Steel Structures</span>
+          <span class="tag">Nonlinear Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Novel Finite Beam Element (MS Research)</h3>
+        <p>Formulated a new finite beam element using the flexibility (force) method to solve nonlinear Euler and Timoshenko beam problems via a large increment method — achieving greater accuracy with less computational cost than standard displacement approaches.</p>
+        <div class="tags">
+          <span class="tag">Finite Element Method</span>
+          <span class="tag">Structural Mechanics</span>
+          <span class="tag">Material Nonlinearity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Integrated Performance-Based Design Framework (Ongoing)</h3>
+        <p>Developing a unified probabilistic framework for marine vessels structured around three domains — hazard, structural response, and loss — adapted from performance-based earthquake engineering principles.</p>
+        <div class="tags">
+          <span class="tag">PBEE</span>
+          <span class="tag">Fragility Curves</span>
+          <span class="tag">Loss Estimation</span>
+          <span class="tag">Ongoing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Climate Resilience of Infrastructure (Future)</h3>
+        <p>Planned research to assess the resilience of bridges, vessels, and coastal structures under climate-induced stressors using physics-informed machine learning models for deterioration prediction in extreme environments.</p>
+        <div class="tags">
+          <span class="tag">Climate Change</span>
+          <span class="tag">Physics-Informed ML</span>
+          <span class="tag">Infrastructure Resilience</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv" style="padding:0;">
+<div class="cv-inner">
+  <p class="section-label">Curriculum Vitae</p>
+  <h2>CV & Experience</h2>
+  <div class="divider"></div>
+  <div class="cv-download">
+    <a href="https://drive.google.com/uc?export=download&id=1W-uiJzn_sAd9cqBFIu5qaGAhQdrOtChO" class="btn btn-primary" style="font-family:Arial,sans-serif;" target="_blank">⬇ Download Full CV (PDF)</a>
+  </div>
+  <div class="cv-grid">
+    <div class="cv-section">
+      <h3>Education</h3>
+      <div class="timeline-item">
+        <div class="tl-date">2021 – 2025</div>
+        <div class="tl-title">PhD in Civil Engineering</div>
+        <div class="tl-sub">Oklahoma State University · Advisor: Dr. Mohamed Soliman</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2017 – 2019</div>
+        <div class="tl-title">MS in Structural Engineering</div>
+        <div class="tl-sub">Jordan University of Science and Technology · Advisor: Dr. Wasim Barham</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2012 – 2017</div>
+        <div class="tl-title">BS in Civil Engineering</div>
+        <div class="tl-sub">Yarmouk University, Jordan · Ranked 1st of 181 graduates</div>
+      </div>
+    </div>
+    <div class="cv-section">
+      <h3>Experience & Awards</h3>
+      <div class="timeline-item">
+        <div class="tl-date">2021 – 2025</div>
+        <div class="tl-title">Graduate Research Assistant</div>
+        <div class="tl-sub">Oklahoma State University — Dr. Soliman's Research Group</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2017 – 2019</div>
+        <div class="tl-title">Graduate Research Assistant</div>
+        <div class="tl-sub">Jordan University of Science and Technology</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2017</div>
+        <div class="tl-title">Top Graduate — Class of 2017</div>
+        <div class="tl-sub">Yarmouk University, Department of Civil Engineering</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">[Year]</div>
+        <div class="tl-title">[Additional Award / Fellowship — add from CV]</div>
+        <div class="tl-sub">[Awarding Organization]</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2>Get in Touch</h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>I'm open to discussing research collaborations, postdoctoral opportunities, faculty positions, or industry roles in structural engineering, marine structures, and infrastructure resilience. Feel free to reach out — I'd love to connect.</p>
+      <div class="contact-links">
+        <a href="mailto:awsokstate@gmail.com" class="contact-link">
+          <div class="contact-icon">✉</div>
+          <span>awsokstate@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/aws-idris-ph-d-a8752b128/" target="_blank" class="contact-link">
+          <div class="contact-icon">in</div>
+          <span>linkedin.com/in/aws-idris-ph-d</span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=nUqgnbsAAAAJ&hl=en&authuser=1" target="_blank" class="contact-link">
+          <div class="contact-icon">🎓</div>
+          <span>Google Scholar Profile</span>
+        </a>
+        <a href="https://www.researchgate.net/profile/Aws-Idris?ev=hdr_xprf" target="_blank" class="contact-link">
+          <div class="contact-icon">🔬</div>
+          <span>ResearchGate Profile</span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" placeholder="Your full name"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Your message..."></textarea>
+        </div>
+        <button class="btn btn-primary" style="align-self:flex-start;font-family:Arial,sans-serif;">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Dr. Aws Idris · PhD in Civil Engineering, Oklahoma State University · All rights reserved.</p>
+</footer>
+
+</body>
+</html>
