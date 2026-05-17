@@ -20,55 +20,33 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Georgia', serif; color: var(--gray-dark); background: var(--white); }
 
-  nav {
-    position: fixed; top:0; width:100%; background: var(--navy);
-    z-index:100; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-  .nav-inner {
-    max-width:1100px; margin:auto; padding:0 2rem;
-    display:flex; justify-content:space-between; align-items:center; height:60px;
-  }
+  nav { position: fixed; top:0; width:100%; background: var(--navy); z-index:100; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .nav-inner { max-width:1100px; margin:auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; height:60px; }
   .nav-logo { color:var(--white); font-size:1.1rem; font-weight:bold; letter-spacing:.5px; }
   .nav-links { display:flex; gap:1.8rem; list-style:none; }
-  .nav-links a {
-    color:#cbd5e1; text-decoration:none; font-family: 'Arial', sans-serif;
-    font-size:.85rem; letter-spacing:.5px; text-transform:uppercase; transition: color .2s;
-  }
+  .nav-links a { color:#cbd5e1; text-decoration:none; font-family:'Arial',sans-serif; font-size:.85rem; letter-spacing:.5px; text-transform:uppercase; transition:color .2s; }
   .nav-links a:hover { color:var(--white); }
 
-  section { padding: 90px 2rem 70px; max-width:1100px; margin:auto; }
+  section { padding:90px 2rem 70px; max-width:1100px; margin:auto; }
   .section-label { font-family:'Arial',sans-serif; font-size:.75rem; text-transform:uppercase; letter-spacing:2px; color:var(--blue); margin-bottom:.5rem; }
   h2 { font-size:2rem; color:var(--navy); margin-bottom:1rem; }
   .divider { width:50px; height:3px; background:var(--blue); margin-bottom:2rem; }
 
-  #hero {
-    max-width:100%; padding:0;
-    background: transparent;
-    min-height:100vh; display:flex; align-items:center; justify-content:center;
-    position:relative; overflow:hidden;
-  }
-  #hero-canvas {
-    position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;
-  }
-  .hero-inner { position:relative; z-index:1; }
-  .hero-inner { max-width:1100px; margin:auto; padding:2rem; display:flex; align-items:center; gap:4rem; flex-wrap:wrap; }
-  .hero-photo {
-    width:200px; height:200px; border-radius:50%;
-    background:rgba(255,255,255,0.1); border:4px solid rgba(255,255,255,0.3);
-    display:flex; align-items:center; justify-content:center;
-    color:rgba(255,255,255,0.5); font-size:.85rem; text-align:center;
-    flex-shrink:0; font-family:Arial,sans-serif;
-  }
+  /* HERO */
+  #hero { max-width:100%; padding:0; background:transparent; min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  #hero-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+  .hero-inner { max-width:1100px; margin:auto; padding:2rem; display:flex; align-items:center; gap:4rem; flex-wrap:wrap; position:relative; z-index:1; }
   .hero-text h1 { font-size:2.8rem; color:var(--white); line-height:1.2; }
   .hero-text .title { color:#93c5fd; font-size:1.15rem; margin:.5rem 0 1rem; font-family:Arial,sans-serif; }
   .hero-text .tagline { color:#cbd5e1; font-size:1rem; max-width:520px; line-height:1.7; margin-bottom:1.8rem; }
   .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
-  .btn { padding:.7rem 1.6rem; border-radius:4px; text-decoration:none; font-family:Arial,sans-serif; font-size:.9rem; font-weight:bold; cursor:pointer; border:none; display:inline-block; transition: all .2s; }
+  .btn { padding:.7rem 1.6rem; border-radius:4px; text-decoration:none; font-family:Arial,sans-serif; font-size:.9rem; font-weight:bold; cursor:pointer; border:none; display:inline-block; transition:all .2s; }
   .btn-primary { background:var(--blue-light); color:var(--white); }
   .btn-primary:hover { background:#2563a8; }
   .btn-outline { background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.5); }
   .btn-outline:hover { border-color:var(--white); }
 
+  /* ABOUT */
   #about { background:var(--white); }
   .about-grid { display:grid; grid-template-columns:2fr 1fr; gap:3rem; align-items:start; }
   .about-text p { line-height:1.85; color:var(--gray-dark); margin-bottom:1rem; font-size:1.02rem; }
@@ -78,14 +56,16 @@
   .info-label { font-size:.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--gray); font-family:Arial,sans-serif; }
   .info-val { font-size:.95rem; color:var(--gray-dark); }
 
-  #research { background:var(--gray-light); max-width:100%; }
-  .research-areas { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-bottom:3rem; max-width:1100px; margin-left:auto; margin-right:auto; }
+  /* RESEARCH */
+  #research { background:var(--gray-light); max-width:100%; padding:0; }
+  .research-header { max-width:1100px; margin:auto; padding:90px 2rem 40px; }
+  .research-areas { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-bottom:3rem; max-width:1100px; margin-left:auto; margin-right:auto; padding:0 2rem; }
   .research-card { background:var(--white); border-radius:8px; padding:1.5rem; border-top:4px solid var(--blue); box-shadow:0 2px 8px rgba(0,0,0,0.06); }
   .research-card h3 { color:var(--navy); margin-bottom:.6rem; font-size:1.05rem; }
   .research-card p { color:var(--gray); font-size:.92rem; line-height:1.7; }
 
-  .pub-list { max-width:1100px; margin:0 auto; }
-  .pub-list h3 { font-size:1.2rem; color:var(--navy); margin-bottom:1rem; }
+  .pub-section { max-width:1100px; margin:0 auto; padding:0 2rem 2.5rem; }
+  .pub-section h3 { font-size:1.2rem; color:var(--navy); margin-bottom:1rem; padding-bottom:.4rem; border-bottom:2px solid var(--border); }
   .pub-item { background:var(--white); border-radius:6px; padding:1.2rem 1.5rem; margin-bottom:1rem; border-left:3px solid var(--blue-light); box-shadow:0 1px 4px rgba(0,0,0,0.05); }
   .pub-title { font-size:1rem; color:var(--navy); margin-bottom:.3rem; }
   .pub-authors { font-size:.85rem; color:var(--gray); font-style:italic; margin-bottom:.3rem; font-family:Arial,sans-serif; }
@@ -93,9 +73,10 @@
   .pub-link { float:right; font-size:.8rem; color:var(--blue); text-decoration:none; font-family:Arial,sans-serif; }
   .pub-link:hover { text-decoration:underline; }
 
+  /* PROJECTS */
   #projects { background:var(--white); }
   .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
-  .project-card { border:1px solid var(--border); border-radius:8px; overflow:hidden; transition: box-shadow .2s, transform .2s; }
+  .project-card { border:1px solid var(--border); border-radius:8px; overflow:hidden; transition:box-shadow .2s, transform .2s; }
   .project-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.1); transform:translateY(-3px); }
   .project-img { height:140px; background:linear-gradient(135deg,var(--navy),var(--blue-light)); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.4); font-family:Arial,sans-serif; font-size:.85rem; }
   .project-body { padding:1.2rem; }
@@ -104,7 +85,8 @@
   .tags { display:flex; flex-wrap:wrap; gap:.4rem; }
   .tag { background:var(--accent); color:var(--blue); border-radius:20px; padding:.2rem .7rem; font-size:.75rem; font-family:Arial,sans-serif; }
 
-  #cv { background:var(--gray-light); max-width:100%; }
+  /* CV */
+  #cv { background:var(--gray-light); max-width:100%; padding:0; }
   .cv-inner { max-width:1100px; margin:auto; padding:90px 2rem 70px; }
   .cv-download { margin-bottom:2.5rem; }
   .cv-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
@@ -115,6 +97,7 @@
   .tl-title { font-size:.98rem; color:var(--navy); font-weight:bold; margin:.2rem 0 .1rem; }
   .tl-sub { font-size:.88rem; color:var(--gray); }
 
+  /* CONTACT */
   #contact { background:var(--white); }
   .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
   .contact-info p { color:var(--gray); line-height:1.75; margin-bottom:1.5rem; }
@@ -125,7 +108,7 @@
   .contact-form { display:flex; flex-direction:column; gap:1rem; }
   .form-group { display:flex; flex-direction:column; gap:.3rem; }
   .form-group label { font-family:Arial,sans-serif; font-size:.85rem; color:var(--gray-dark); }
-  .form-group input, .form-group textarea { padding:.7rem 1rem; border:1px solid var(--border); border-radius:5px; font-size:.95rem; font-family:Georgia,serif; color:var(--gray-dark); transition: border-color .2s; }
+  .form-group input, .form-group textarea { padding:.7rem 1rem; border:1px solid var(--border); border-radius:5px; font-size:.95rem; font-family:Georgia,serif; color:var(--gray-dark); transition:border-color .2s; }
   .form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--blue); }
   .form-group textarea { resize:vertical; min-height:120px; }
 
@@ -162,9 +145,7 @@
     <div class="hero-text">
       <h1>Dr. Aws Idris</h1>
       <p class="title">PhD in Civil Engineering &nbsp;|&nbsp; Oklahoma State University, 2025</p>
-      <p class="tagline">
-        Advancing the safety and resilience of marine vessels and civil infrastructure through probabilistic analysis, high-fidelity finite element simulations, and machine learning.
-      </p>
+      <p class="tagline">Advancing the safety and resilience of marine vessels and civil infrastructure through probabilistic analysis, high-fidelity finite element simulations, and machine learning.</p>
       <div class="hero-btns">
         <a href="#research" class="btn btn-primary">View My Research</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
@@ -180,158 +161,122 @@
   <div class="divider"></div>
   <div class="about-grid">
     <div class="about-text">
-      <p>
-        I am a structural engineer and researcher with a PhD in Civil Engineering from Oklahoma State University (2025), where I worked under the supervision of Dr. Mohamed Soliman. My doctoral research focused on the probabilistic performance-based assessment of marine vessels under extreme loading conditions, funded by the Office of Naval Research.
-      </p>
-      <p>
-        I developed novel machine-learning-assisted frameworks for quantifying the fragility, functionality, and long-term resilience of marine vessels. My work introduced new damage state definitions based on low-cycle fatigue analysis, probabilistic demand models, and advanced variance-based sensitivity analyses using high-fidelity finite element simulations.
-      </p>
-      <p>
-        Prior to my PhD, I earned a Master of Science in Structural Engineering from Jordan University of Science and Technology (2019), where I developed a novel finite beam element using the flexibility method to solve nonlinear structural problems with reduced computational cost. I also hold a Bachelor of Science in Civil Engineering from Yarmouk University (2017), where I graduated first among 181 students.
-      </p>
-      <p>
-        I am currently seeking opportunities in academia or research where I can expand my work on performance-based design of marine and civil infrastructure systems, with growing interest in climate resilience and physics-informed machine learning.
-      </p>
+      <p>I am a structural engineer and researcher with a PhD in Civil Engineering from Oklahoma State University (2025), where I worked under the supervision of Dr. Mohamed Soliman. My doctoral research focused on the probabilistic performance-based assessment of marine vessels under extreme loading conditions, funded by the Office of Naval Research.</p>
+      <p>I developed novel machine-learning-assisted frameworks for quantifying the fragility, functionality, and long-term resilience of marine vessels. My work introduced new damage state definitions based on low-cycle fatigue analysis, probabilistic demand models, and advanced variance-based sensitivity analyses using high-fidelity finite element simulations.</p>
+      <p>Prior to my PhD, I earned a Master of Science in Structural Engineering from Jordan University of Science and Technology (2019), where I developed a novel finite beam element using the flexibility method to solve nonlinear structural problems with reduced computational cost. I also hold a Bachelor of Science in Civil Engineering from Yarmouk University (2017), where I graduated first among 181 students.</p>
+      <p>I am currently seeking opportunities in academia or research where I can expand my work on performance-based design of marine and civil infrastructure systems, with growing interest in climate resilience and physics-informed machine learning.</p>
     </div>
     <div class="about-info">
       <h3>Quick Info</h3>
-      <div class="info-item">
-        <span class="info-label">Degree</span>
-        <span class="info-val">PhD, Civil Engineering</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">University</span>
-        <span class="info-val">Oklahoma State University</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Graduation</span>
-        <span class="info-val">2025</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Specialization</span>
-        <span class="info-val">Structural Engineering & Reliability</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Location</span>
-        <span class="info-val">Stillwater, Oklahoma, USA</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Open To</span>
-        <span class="info-val">Postdoc, Faculty, Industry Research</span>
-      </div>
+      <div class="info-item"><span class="info-label">Degree</span><span class="info-val">PhD, Civil Engineering</span></div>
+      <div class="info-item"><span class="info-label">University</span><span class="info-val">Oklahoma State University</span></div>
+      <div class="info-item"><span class="info-label">Graduation</span><span class="info-val">2025</span></div>
+      <div class="info-item"><span class="info-label">Specialization</span><span class="info-val">Reliability Analysis · Probabilistic Simulation · Structural Engineering · Steel Structures · Resilience Quantification</span></div>
+      <div class="info-item"><span class="info-label">Open To</span><span class="info-val">Postdoc, Faculty, Industry Research</span></div>
     </div>
   </div>
 </section>
 
 <!-- RESEARCH -->
-<section id="research" style="padding:0;">
-<div style="max-width:1100px;margin:auto;padding:90px 2rem 40px;">
-  <p class="section-label">Research</p>
-  <h2>Research Interests</h2>
-  <div class="divider"></div>
-</div>
-<div class="research-areas">
-  <div class="research-card">
-    <h3>🚢 Performance-Based Design of Marine Vessels</h3>
-    <p>Developing integrated probabilistic frameworks for assessing the fragility, functionality, and resilience of ships under extreme hazards such as storms, collisions, and grounding — addressing the limitations of prescriptive design standards.</p>
+<section id="research">
+  <div class="research-header">
+    <p class="section-label">Research</p>
+    <h2>Research Interests</h2>
+    <div class="divider"></div>
   </div>
-  <div class="research-card">
-    <h3>🤖 Machine Learning for Structural Engineering</h3>
-    <p>Leveraging advanced machine learning algorithms and variance-based sensitivity analysis to build efficient predictive models for structural demand and reliability, reducing reliance on computationally expensive simulations.</p>
-  </div>
-  <div class="research-card">
-    <h3>🔩 Finite Element Simulations & Reliability</h3>
-    <p>High-fidelity FEM modeling of ship hull girders and steel connections to quantify the effects of geometric imperfections, welding-induced residual stresses, and material nonlinearity on structural reliability.</p>
-  </div>
-  <div class="research-card">
-    <h3>🌍 Infrastructure Resilience & Climate Change</h3>
-    <p>Investigating the long-term resilience of bridges, vessels, and coastal/offshore structures under climate-induced stressors, including developing physics-informed machine learning models for deterioration prediction.</p>
-  </div>
-  <div class="research-card">
-    <h3>⚓ Aluminum Hull Reliability & Corrosion</h3>
-    <p>Quantifying the reliability of aluminum ship hulls by accounting for the effects of sensitization and corrosion on material properties and structural performance under monotonic and cyclic loading conditions.</p>
-  </div>
-  <div class="research-card">
-    <h3>🌊 Probabilistic Hazard & Loss Assessment</h3>
-    <p>Extending performance-based earthquake engineering formulations to the marine context, integrating hazard characterization, structural demand modeling, and loss estimation into a unified probabilistic framework.</p>
-  </div>
-</div>
-
-<div class="pub-list" style="padding:0 2rem 70px;">
-  <h3>Publications</h3>
-
-  <div class="pub-item">
-    <a href="https://doi.org/10.1016/j.oceaneng.2026.125400" class="pub-link" target="_blank">DOI ↗</a>
-    <div class="pub-title">Functionality and long-term resilience quantification of ship hulls under ultimate bending failure considering uncertainties</div>
-    <div class="pub-authors">Idris, A., & Soliman, M.</div>
-    <div class="pub-journal">Ocean Engineering, 357, 125400 · 2026</div>
+  <div class="research-areas">
+    <div class="research-card">
+      <h3>🚢 Performance-Based Design of Marine Vessels</h3>
+      <p>Developing integrated probabilistic frameworks for assessing the fragility, functionality, and resilience of ships under extreme hazards such as storms, collisions, and grounding — addressing the limitations of prescriptive design standards.</p>
+    </div>
+    <div class="research-card">
+      <h3>🤖 Machine Learning for Structural Engineering</h3>
+      <p>Leveraging advanced machine learning algorithms and variance-based sensitivity analysis to build efficient predictive models for structural demand and reliability, reducing reliance on computationally expensive simulations.</p>
+    </div>
+    <div class="research-card">
+      <h3>🔩 Finite Element Simulations & Reliability</h3>
+      <p>High-fidelity FEM modeling of ship hull girders and steel connections to quantify the effects of geometric imperfections, welding-induced residual stresses, and material nonlinearity on structural reliability.</p>
+    </div>
+    <div class="research-card">
+      <h3>🌍 Infrastructure Resilience & Climate Change</h3>
+      <p>Investigating the long-term resilience of bridges, vessels, and coastal/offshore structures under climate-induced stressors, including developing physics-informed machine learning models for deterioration prediction.</p>
+    </div>
+    <div class="research-card">
+      <h3>⚓ Aluminum Hull Reliability & Corrosion</h3>
+      <p>Quantifying the reliability of aluminum ship hulls by accounting for the effects of sensitization and corrosion on material properties and structural performance under monotonic and cyclic loading conditions.</p>
+    </div>
+    <div class="research-card">
+      <h3>🌊 Probabilistic Hazard & Loss Assessment</h3>
+      <p>Extending performance-based earthquake engineering formulations to the marine context, integrating hazard characterization, structural demand modeling, and loss estimation into a unified probabilistic framework.</p>
+    </div>
   </div>
 
-  <div class="pub-item">
-    <a href="https://doi.org/10.12989/scs.2026.58.2.277" class="pub-link" target="_blank">DOI ↗</a>
-    <div class="pub-title">Experimental and numerical analyses of the behavior of single shear connections combining pretensioned high-strength bolts and longitudinal fillet welds</div>
-    <div class="pub-authors">Park, S., Idris, A., Soliman, M., Bennett, C.W., & Russell, B.W.</div>
-    <div class="pub-journal">Steel and Composite Structures, 58(2), 277–300 · 2026</div>
-  </div>
-
-  <div class="pub-item">
-    <a href="#" class="pub-link">In Press</a>
-    <div class="pub-title">Machine Learning-Assisted Fragility Quantification of Marine Vessels Under Hazards</div>
-    <div class="pub-authors">Idris, A., & Soliman, M.</div>
-    <div class="pub-journal">16th International Symposium on Practical Design of Ships and Other Floating Structures (PRADS 2025), Ann Arbor, MI · 2026</div>
-  </div>
-
-  <div class="pub-item">
-    <a href="https://doi.org/10.1016/j.marstruc.2025.103944" class="pub-link" target="_blank">DOI ↗</a>
-    <div class="pub-title">Probabilistic demand models and analytical fragility quantification for ship hulls under ultimate bending conditions</div>
-    <div class="pub-authors">Idris, A., & Soliman, M.</div>
-    <div class="pub-journal">Marine Structures, 106, 103944 · 2026</div>
-  </div>
-
-  <div class="pub-item">
-    <a href="https://doi.org/10.1080/15732479.2025.2470855" class="pub-link" target="_blank">DOI ↗</a>
-    <div class="pub-title">A comprehensive framework for fragility quantification of marine vessels</div>
-    <div class="pub-authors">Idris, A., Soliman, M., & Tamimi, M.F.</div>
-    <div class="pub-journal">Structure and Infrastructure Engineering, 1–22 · 2025</div>
-  </div>
-
-  <div class="pub-item">
-    <a href="https://doi.org/10.1016/j.strusafe.2025.102575" class="pub-link" target="_blank">DOI ↗</a>
-    <div class="pub-title">Sensitivity of ship hull reliability considering geometric imperfections and residual stresses</div>
-    <div class="pub-authors">Idris, A., & Soliman, M.</div>
-    <div class="pub-journal">Structural Safety, 102575 · 2025</div>
-  </div>
-
-  <div class="pub-item">
-    <a href="https://doi.org/10.1016/j.engstruct.2024.118435" class="pub-link" target="_blank">DOI ↗</a>
-    <div class="pub-title">Numerical investigation of the behavior of combination connections with pretensioned high-strength bolts and longitudinal fillet welds</div>
-    <div class="pub-authors">Shen, L., Idris, A., Soliman, M., Waite, C.D., & Russell, B.W.</div>
-    <div class="pub-journal">Engineering Structures, 315, 118435 · 2024</div>
-  </div>
-
-  <div class="pub-item">
-    <a href="https://doi.org/10.1016/j.istruc.2021.01.023" class="pub-link" target="_blank">DOI ↗</a>
-    <div class="pub-title">Flexibility-based large increment method for nonlinear analysis of Timoshenko beam structures controlled by a bilinear material model</div>
-    <div class="pub-authors">Barham, W.S., & Idris, A.A.</div>
-    <div class="pub-journal">Structures, 30, 678–691 · 2021</div>
+  <!-- PUBLICATIONS -->
+  <div class="pub-section">
+    <h3>Publications</h3>
+    <div class="pub-item">
+      <a href="#" class="pub-link">DOI ↗</a>
+      <div class="pub-title">Functionality and long-term resilience quantification of ship hulls under ultimate bending failure considering uncertainties</div>
+      <div class="pub-authors">Idris, A., & Soliman, M.</div>
+      <div class="pub-journal">Ocean Engineering, 357, 125400 · 2026</div>
+    </div>
+    <div class="pub-item">
+      <a href="https://doi.org/10.12989/scs.2026.58.2.277" class="pub-link" target="_blank">DOI ↗</a>
+      <div class="pub-title">Experimental and numerical analyses of the behavior of single shear connections combining pretensioned high-strength bolts and longitudinal fillet welds</div>
+      <div class="pub-authors">Park, S., Idris, A., Soliman, M., Bennett, C.W., & Russell, B.W.</div>
+      <div class="pub-journal">Steel and Composite Structures, 58(2), 277–300 · 2026</div>
+    </div>
+    <div class="pub-item">
+      <a href="#" class="pub-link">In Press</a>
+      <div class="pub-title">Machine Learning-Assisted Fragility Quantification of Marine Vessels Under Hazards</div>
+      <div class="pub-authors">Idris, A., & Soliman, M.</div>
+      <div class="pub-journal">16th International Symposium on Practical Design of Ships and Other Floating Structures (PRADS 2025), Ann Arbor, MI · 2026</div>
+    </div>
+    <div class="pub-item">
+      <a href="https://doi.org/10.1016/j.marstruc.2025.103944" class="pub-link" target="_blank">DOI ↗</a>
+      <div class="pub-title">Probabilistic demand models and analytical fragility quantification for ship hulls under ultimate bending conditions</div>
+      <div class="pub-authors">Idris, A., & Soliman, M.</div>
+      <div class="pub-journal">Marine Structures, 106, 103944 · 2026</div>
+    </div>
+    <div class="pub-item">
+      <a href="https://doi.org/10.1080/15732479.2025.2470855" class="pub-link" target="_blank">DOI ↗</a>
+      <div class="pub-title">A comprehensive framework for fragility quantification of marine vessels</div>
+      <div class="pub-authors">Idris, A., Soliman, M., & Tamimi, M.F.</div>
+      <div class="pub-journal">Structure and Infrastructure Engineering, 1–22 · 2025</div>
+    </div>
+    <div class="pub-item">
+      <a href="https://doi.org/10.1016/j.strusafe.2025.102575" class="pub-link" target="_blank">DOI ↗</a>
+      <div class="pub-title">Sensitivity of ship hull reliability considering geometric imperfections and residual stresses</div>
+      <div class="pub-authors">Idris, A., & Soliman, M.</div>
+      <div class="pub-journal">Structural Safety, 102575 · 2025</div>
+    </div>
+    <div class="pub-item">
+      <a href="https://doi.org/10.1016/j.engstruct.2024.118435" class="pub-link" target="_blank">DOI ↗</a>
+      <div class="pub-title">Numerical investigation of the behavior of combination connections with pretensioned high-strength bolts and longitudinal fillet welds</div>
+      <div class="pub-authors">Shen, L., Idris, A., Soliman, M., Waite, C.D., & Russell, B.W.</div>
+      <div class="pub-journal">Engineering Structures, 315, 118435 · 2024</div>
+    </div>
+    <div class="pub-item">
+      <a href="https://doi.org/10.1016/j.istruc.2021.01.023" class="pub-link" target="_blank">DOI ↗</a>
+      <div class="pub-title">Flexibility-based large increment method for nonlinear analysis of Timoshenko beam structures controlled by a bilinear material model</div>
+      <div class="pub-authors">Barham, W.S., & Idris, A.A.</div>
+      <div class="pub-journal">Structures, 30, 678–691 · 2021</div>
+    </div>
   </div>
 
   <!-- CONFERENCE PRESENTATIONS -->
-  <div class="pub-list" style="padding:0 0 2rem;">
+  <div class="pub-section">
     <h3>Conference Presentations</h3>
-
     <div class="pub-item">
       <div class="pub-title">Sensitivity analysis of the reliability of corroded ship hulls considering initial geometric imperfections and residual stresses</div>
       <div class="pub-authors">Idris, A., & Soliman, M.</div>
       <div class="pub-journal">Oral Presentation · Engineering Mechanics Institute & Probabilistic Mechanics and Reliability Conference · Chicago, IL · May 28–31, 2024</div>
     </div>
-
     <div class="pub-item">
       <div class="pub-title">Reliability and ultimate failure analysis of ship hulls under cyclic bending loads</div>
       <div class="pub-authors">Ibrahim, M., Idris, A., & Soliman, M.</div>
       <div class="pub-journal">Oral Presentation · Engineering Mechanics Institute & Probabilistic Mechanics and Reliability Conference · Chicago, IL · May 28–31, 2024</div>
     </div>
-
     <div class="pub-item">
       <div class="pub-title">A novel fragility framework for assessing the performance of marine vessels</div>
       <div class="pub-authors">Idris, A., & Soliman, M.</div>
@@ -340,35 +285,29 @@
   </div>
 
   <!-- DISSERTATIONS, THESES & REPORTS -->
-  <div class="pub-list" style="padding:0 0 70px;">
+  <div class="pub-section" style="padding-bottom:70px;">
     <h3>Dissertations, Theses & Reports</h3>
-
     <div class="pub-item">
       <div class="pub-title">A Comprehensive Fragility Quantification Framework for Marine Structures Under Hazards</div>
       <div class="pub-authors">Idris, A.A.K.</div>
       <div class="pub-journal">Doctoral Dissertation · Oklahoma State University · 2025</div>
     </div>
-
     <div class="pub-item">
       <div class="pub-title">A Fragility-Based Approach Supporting Enhanced Resilience of Manned and Unmanned Surface Vessels Under Uncertain Demand</div>
       <div class="pub-authors">Soliman, M., & Idris, A.</div>
       <div class="pub-journal">Technical Report Submitted to the Office of Naval Research (ONR) · 2025</div>
     </div>
-
     <div class="pub-item">
       <div class="pub-title">Numerical Simulation of the Behavior of Buckling-Restrained Braces Under AISC Seismic Testing Protocol</div>
       <div class="pub-authors">Soliman, M., Tamimi, M.F., Idris, A., & Soliman, A.</div>
       <div class="pub-journal">Technical Report Submitted to Seismic Bracing Company · 2022</div>
     </div>
-
     <div class="pub-item">
       <div class="pub-title">Flexibility-Based Large Increment Method for Solving Different Nonlinear Structural Problems</div>
       <div class="pub-authors">Idris, A.A.K.</div>
       <div class="pub-journal">Master's Thesis · Jordan University of Science and Technology · 2019</div>
     </div>
   </div>
-
-</div>
 </section>
 
 <!-- PROJECTS -->
@@ -378,102 +317,23 @@
   <div class="divider"></div>
   <div class="projects-grid">
 
-    <div class="project-card">
-      <div class="project-body" style="padding-bottom:.5rem;">
-        <h3>Fragility & Resilience of Marine Vessels</h3>
-        <p>Developed machine-learning-assisted frameworks for quantifying the fragility, functionality, and long-term resilience of ships under extreme hazards, including novel damage state definitions from low-cycle fatigue analysis. Funded by the Office of Naval Research.</p>
-        <div class="tags" style="margin-bottom:1rem;">
-          <span class="tag">FEM</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Fragility Analysis</span>
-          <span class="tag">ONR Funded</span>
-        </div>
-      </div>
-      <div style="position:relative;background:#000;overflow:hidden;" id="slideshow2">
-        <div id="slides2" style="display:flex;transition:transform .5s ease;">
-          <img src="https://drive.google.com/thumbnail?id=1K5RWckIqsw-j4NvQU5rINat0fOAZCWGy&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
-          <img src="https://drive.google.com/thumbnail?id=1n88_37kpyvLYsNGAe7QZbVvkabELHmmf&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
-        </div>
-        <button onclick="moveSlide2(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8249;</button>
-        <button onclick="moveSlide2(1)"  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8250;</button>
-        <div style="position:absolute;bottom:8px;width:100%;display:flex;justify-content:center;gap:6px;">
-          <span class="dot2" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:1;cursor:pointer;" onclick="goSlide2(0)"></span>
-          <span class="dot2" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:.4;cursor:pointer;" onclick="goSlide2(1)"></span>
-        </div>
-      </div>
-      <script>
-        var cur2 = 0;
-        function updateSlide2() {
-          document.getElementById('slides2').style.transform = 'translateX(-' + (cur2 * 100) + '%)';
-          document.querySelectorAll('.dot2').forEach(function(d,i){ d.style.opacity = i===cur2 ? '1' : '.4'; });
-        }
-        function moveSlide2(dir) { cur2 = (cur2 + dir + 2) % 2; updateSlide2(); }
-        function goSlide2(n) { cur2 = n; updateSlide2(); }
-      </script>
-    </div>
-
-    <div class="project-card">
-      <div class="project-img">Project Image / Figure</div>
-      <div class="project-body">
-        <h3>Ship Hull Girder Reliability</h3>
-        <p>Quantified the effects of initial geometric imperfections and welding-induced residual stresses on ship hull girder reliability using high-fidelity FEM simulations and variance-based sensitivity analysis assisted by machine learning.</p>
-        <div class="tags">
-          <span class="tag">Reliability Analysis</span>
-          <span class="tag">FEM</span>
-          <span class="tag">Sensitivity Analysis</span>
-          <span class="tag">Residual Stress</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-img">Project Image / Figure</div>
-      <div class="project-body">
-        <h3>Steel Connection Performance</h3>
-        <p>Numerical and experimental investigation of the performance of steel connections under extreme loading, contributing to improved design guidelines for structural steel systems.</p>
-        <div class="tags">
-          <span class="tag">Experimental Testing</span>
-          <span class="tag">Steel Structures</span>
-          <span class="tag">Nonlinear Analysis</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-img">Project Image / Figure</div>
-      <div class="project-body">
-        <h3>Novel Finite Beam Element (MS Research)</h3>
-        <p>Formulated a new finite beam element using the flexibility (force) method to solve nonlinear Euler and Timoshenko beam problems via a large increment method — achieving greater accuracy with less computational cost than standard displacement approaches.</p>
-        <div class="tags">
-          <span class="tag">Finite Element Method</span>
-          <span class="tag">Structural Mechanics</span>
-          <span class="tag">Material Nonlinearity</span>
-        </div>
-      </div>
-    </div>
-
+    <!-- 1. Ongoing future research first -->
     <div class="project-card">
       <div class="project-body" style="padding-bottom:.5rem;">
         <h3>Integrated Performance-Based Design Framework (Ongoing)</h3>
         <p>Developing a unified probabilistic framework for marine vessels structured around three domains — hazard, structural response, and loss — adapted from performance-based earthquake engineering principles.</p>
         <div class="tags" style="margin-bottom:1rem;">
-          <span class="tag">PBEE</span>
-          <span class="tag">Fragility Curves</span>
-          <span class="tag">Loss Estimation</span>
-          <span class="tag">Ongoing</span>
+          <span class="tag">PBEE</span><span class="tag">Fragility Curves</span><span class="tag">Loss Estimation</span><span class="tag">Ongoing</span>
         </div>
       </div>
-      <!-- Image Slideshow -->
-      <div style="position:relative;background:#000;overflow:hidden;" id="slideshow">
+      <div style="position:relative;background:#000;overflow:hidden;">
         <div id="slides" style="display:flex;transition:transform .5s ease;">
           <img src="https://drive.google.com/thumbnail?id=1CGPT1SVRnJDTL1fG9UXgjtAYnyDUZ1jT&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
           <img src="https://drive.google.com/thumbnail?id=122nssPLXeY-2DHuNz0HcAw7Ous0YO_nC&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
           <img src="https://drive.google.com/thumbnail?id=1SPRYaFbK1HbL2o0s-5FoOo14oaVd-Z7_&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
         </div>
-        <!-- Prev/Next buttons -->
-        <button onclick="moveSlide(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8249;</button>
-        <button onclick="moveSlide(1)"  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;line-height:1;">&#8250;</button>
-        <!-- Dots -->
+        <button onclick="moveSlide(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;">&#8249;</button>
+        <button onclick="moveSlide(1)"  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;">&#8250;</button>
         <div style="position:absolute;bottom:8px;width:100%;display:flex;justify-content:center;gap:6px;">
           <span class="dot" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:1;cursor:pointer;" onclick="goSlide(0)"></span>
           <span class="dot" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:.4;cursor:pointer;" onclick="goSlide(1)"></span>
@@ -481,25 +341,86 @@
         </div>
       </div>
       <script>
-        var cur = 0;
-        function updateSlide() {
-          document.getElementById('slides').style.transform = 'translateX(-' + (cur * 100) + '%)';
-          document.querySelectorAll('.dot').forEach(function(d,i){ d.style.opacity = i===cur ? '1' : '.4'; });
-        }
-        function moveSlide(dir) { cur = (cur + dir + 3) % 3; updateSlide(); }
-        function goSlide(n) { cur = n; updateSlide(); }
+        var cur=0;
+        function updateSlide(){document.getElementById('slides').style.transform='translateX(-'+(cur*100)+'%)';document.querySelectorAll('.dot').forEach(function(d,i){d.style.opacity=i===cur?'1':'.4';});}
+        function moveSlide(dir){cur=(cur+dir+3)%3;updateSlide();}
+        function goSlide(n){cur=n;updateSlide();}
       </script>
     </div>
 
+    <!-- 2. Climate resilience future -->
     <div class="project-card">
       <div class="project-img">Project Image / Figure</div>
       <div class="project-body">
-        <h3>Climate Resilience of Infrastructure (Future)</h3>
+        <h3>Resilience of Infrastructure Under the Effect of Climate Change (Future)</h3>
         <p>Planned research to assess the resilience of bridges, vessels, and coastal structures under climate-induced stressors using physics-informed machine learning models for deterioration prediction in extreme environments.</p>
         <div class="tags">
-          <span class="tag">Climate Change</span>
-          <span class="tag">Physics-Informed ML</span>
-          <span class="tag">Infrastructure Resilience</span>
+          <span class="tag">Climate Change</span><span class="tag">Physics-Informed ML</span><span class="tag">Infrastructure Resilience</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Fragility & Resilience -->
+    <div class="project-card">
+      <div class="project-body" style="padding-bottom:.5rem;">
+        <h3>Fragility, Functionality, and Resilience Quantification of Marine Vessels</h3>
+        <p>Developed machine-learning-assisted frameworks for quantifying the fragility, functionality, and long-term resilience of ships under extreme hazards, including novel damage state definitions from low-cycle fatigue analysis. Funded by the Office of Naval Research.</p>
+        <div class="tags" style="margin-bottom:1rem;">
+          <span class="tag">FEM</span><span class="tag">Machine Learning</span><span class="tag">Fragility Analysis</span><span class="tag">ONR Funded</span>
+        </div>
+      </div>
+      <div style="position:relative;background:#000;overflow:hidden;">
+        <div id="slides2" style="display:flex;transition:transform .5s ease;">
+          <img src="https://drive.google.com/thumbnail?id=1K5RWckIqsw-j4NvQU5rINat0fOAZCWGy&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
+          <img src="https://drive.google.com/thumbnail?id=1n88_37kpyvLYsNGAe7QZbVvkabELHmmf&sz=w800" style="min-width:100%;height:220px;object-fit:contain;"/>
+        </div>
+        <button onclick="moveSlide2(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;">&#8249;</button>
+        <button onclick="moveSlide2(1)"  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;">&#8250;</button>
+        <div style="position:absolute;bottom:8px;width:100%;display:flex;justify-content:center;gap:6px;">
+          <span class="dot2" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:1;cursor:pointer;" onclick="goSlide2(0)"></span>
+          <span class="dot2" style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:.4;cursor:pointer;" onclick="goSlide2(1)"></span>
+        </div>
+      </div>
+      <script>
+        var cur2=0;
+        function updateSlide2(){document.getElementById('slides2').style.transform='translateX(-'+(cur2*100)+'%)';document.querySelectorAll('.dot2').forEach(function(d,i){d.style.opacity=i===cur2?'1':'.4';});}
+        function moveSlide2(dir){cur2=(cur2+dir+2)%2;updateSlide2();}
+        function goSlide2(n){cur2=n;updateSlide2();}
+      </script>
+    </div>
+
+    <!-- 4. Ship Hull Reliability -->
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Sensitivity of Ship Hull Girder Reliability</h3>
+        <p>Quantified the effects of initial geometric imperfections and welding-induced residual stresses on ship hull girder reliability using high-fidelity FEM simulations and variance-based sensitivity analysis assisted by machine learning.</p>
+        <div class="tags">
+          <span class="tag">Reliability Analysis</span><span class="tag">FEM</span><span class="tag">Sensitivity Analysis</span><span class="tag">Residual Stress</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Steel Connection -->
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Steel Connection Performance</h3>
+        <p>Numerical investigation of the performance of steel connections under extreme loading, contributing to improved design guidelines for structural steel systems.</p>
+        <div class="tags">
+          <span class="tag">Steel Structures</span><span class="tag">Nonlinear Analysis</span><span class="tag">FEM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. MS Research -->
+    <div class="project-card">
+      <div class="project-img">Project Image / Figure</div>
+      <div class="project-body">
+        <h3>Novel Finite Beam Element (MS Research)</h3>
+        <p>Formulated a new finite beam element using the flexibility (force) method to solve nonlinear Euler and Timoshenko beam problems via a large increment method — achieving greater accuracy with less computational cost than standard displacement approaches.</p>
+        <div class="tags">
+          <span class="tag">Finite Element Method</span><span class="tag">Structural Mechanics</span><span class="tag">Material Nonlinearity</span>
         </div>
       </div>
     </div>
@@ -554,7 +475,7 @@
       </div>
       <div class="timeline-item">
         <div class="tl-date">[Year]</div>
-        <div class="tl-title">[Additional Award / Fellowship — add from CV]</div>
+        <div class="tl-title">[Additional Award / Fellowship]</div>
         <div class="tl-sub">[Awarding Organization]</div>
       </div>
     </div>
@@ -571,38 +492,17 @@
     <div class="contact-info">
       <p>I'm open to discussing research collaborations, postdoctoral opportunities, faculty positions, or industry roles in structural engineering, marine structures, and infrastructure resilience. Feel free to reach out — I'd love to connect.</p>
       <div class="contact-links">
-        <a href="mailto:awsokstate@gmail.com" class="contact-link">
-          <div class="contact-icon">✉</div>
-          <span>awsokstate@gmail.com</span>
-        </a>
-        <a href="https://www.linkedin.com/in/aws-idris-ph-d-a8752b128/" target="_blank" class="contact-link">
-          <div class="contact-icon">in</div>
-          <span>linkedin.com/in/aws-idris-ph-d</span>
-        </a>
-        <a href="https://scholar.google.com/citations?user=nUqgnbsAAAAJ&hl=en&authuser=1" target="_blank" class="contact-link">
-          <div class="contact-icon">🎓</div>
-          <span>Google Scholar Profile</span>
-        </a>
-        <a href="https://www.researchgate.net/profile/Aws-Idris?ev=hdr_xprf" target="_blank" class="contact-link">
-          <div class="contact-icon">🔬</div>
-          <span>ResearchGate Profile</span>
-        </a>
+        <a href="mailto:awsokstate@gmail.com" class="contact-link"><div class="contact-icon">✉</div><span>awsokstate@gmail.com</span></a>
+        <a href="https://www.linkedin.com/in/aws-idris-ph-d-a8752b128/" target="_blank" class="contact-link"><div class="contact-icon">in</div><span>linkedin.com/in/aws-idris-ph-d</span></a>
+        <a href="https://scholar.google.com/citations?user=nUqgnbsAAAAJ&hl=en&authuser=1" target="_blank" class="contact-link"><div class="contact-icon">🎓</div><span>Google Scholar Profile</span></a>
+        <a href="https://www.researchgate.net/profile/Aws-Idris?ev=hdr_xprf" target="_blank" class="contact-link"><div class="contact-icon">🔬</div><span>ResearchGate Profile</span></a>
       </div>
     </div>
     <div>
       <div class="contact-form">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Your full name"/>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="your@email.com"/>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Your message..."></textarea>
-        </div>
+        <div class="form-group"><label>Name</label><input type="text" placeholder="Your full name"/></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Your message..."></textarea></div>
         <button class="btn btn-primary" style="align-self:flex-start;font-family:Arial,sans-serif;">Send Message</button>
       </div>
     </div>
@@ -614,277 +514,145 @@
 </footer>
 
 <script>
-  // Hero canvas: animated ocean waves + geometric ship hull mesh
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, t = 0;
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  window.addEventListener('resize',resize);resize();
 
-  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
-  window.addEventListener('resize', resize); resize();
-
-  // Mesh nodes for ship hull silhouette
-  const nodes = [];
-  function buildMesh() {
-    nodes.length = 0;
-    const cols = 18, rows = 8;
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        // Ship hull ellipse shape
-        const tx = c / (cols - 1); // 0..1
-        const ty = r / (rows - 1); // 0..1
-        const hull = Math.sin(Math.PI * tx); // wider in middle
-        const x = W * 0.18 + tx * W * 0.64;
-        const baseY = H * 0.22;
-        const hullH = H * 0.22 * hull;
-        const y = baseY + ty * hullH;
-        nodes.push({ x, y, ox: x, oy: y, vx: (Math.random()-.5)*0.3, vy: (Math.random()-.5)*0.3 });
-      }
-    }
-  }
-  buildMesh();
-  window.addEventListener('resize', buildMesh);
-
-  // ANN Neural Network animation
-  const ann = { layers: [3, 5, 4, 5, 2], nodes: [], connections: [] };
-  function buildANN() {
-    ann.nodes = []; ann.connections = [];
-    const startX = W * 0.62, totalW = W * 0.32;
-    const layerSpacing = totalW / (ann.layers.length - 1);
-    ann.layers.forEach((count, li) => {
-      const x = startX + li * layerSpacing;
-      const totalH = H * 0.38;
-      const startY = H * 0.08;
-      const nodeSpacing = totalH / (count - 1 || 1);
-      for (let ni = 0; ni < count; ni++) {
-        const y = count === 1 ? startY + totalH/2 : startY + ni * nodeSpacing;
-        ann.nodes.push({ x, y, li, ni, activation: Math.random(), pulse: Math.random() * Math.PI * 2 });
+  // ANN
+  const ann={layers:[3,5,4,5,2],nodes:[],connections:[]};
+  function buildANN(){
+    ann.nodes=[];ann.connections=[];
+    const startX=W*0.62,totalW=W*0.32;
+    const layerSpacing=totalW/(ann.layers.length-1);
+    ann.layers.forEach((count,li)=>{
+      const x=startX+li*layerSpacing;
+      const totalH=H*0.38,startY=H*0.08;
+      const nodeSpacing=totalH/(count-1||1);
+      for(let ni=0;ni<count;ni++){
+        const y=count===1?startY+totalH/2:startY+ni*nodeSpacing;
+        ann.nodes.push({x,y,li,ni,activation:Math.random(),pulse:Math.random()*Math.PI*2});
       }
     });
-    // build connections between adjacent layers
-    let idx = 0;
-    ann.layers.forEach((count, li) => {
-      if (li === ann.layers.length - 1) return;
-      const nextCount = ann.layers[li + 1];
-      const layerStart = ann.nodes.findIndex(n => n.li === li);
-      const nextStart = ann.nodes.findIndex(n => n.li === li + 1);
-      for (let a = 0; a < count; a++) {
-        for (let b = 0; b < nextCount; b++) {
-          ann.connections.push({
-            from: layerStart + a,
-            to: nextStart + b,
-            weight: Math.random(),
-            signal: Math.random(),
-            speed: 0.4 + Math.random() * 0.6,
-            offset: Math.random()
-          });
-        }
-      }
+    ann.layers.forEach((count,li)=>{
+      if(li===ann.layers.length-1)return;
+      const nextCount=ann.layers[li+1];
+      const layerStart=ann.nodes.findIndex(n=>n.li===li);
+      const nextStart=ann.nodes.findIndex(n=>n.li===li+1);
+      for(let a=0;a<count;a++)for(let b=0;b<nextCount;b++)
+        ann.connections.push({from:layerStart+a,to:nextStart+b,weight:Math.random(),speed:0.4+Math.random()*0.6,offset:Math.random()});
     });
   }
   buildANN();
-  window.addEventListener('resize', buildANN);
+  window.addEventListener('resize',buildANN);
 
-  function drawANN(t) {
-    // Draw connections with traveling signal pulses
-    ann.connections.forEach(c => {
-      const from = ann.nodes[c.from], to = ann.nodes[c.to];
-      const alpha = 0.08 + c.weight * 0.1;
-      ctx.beginPath();
-      ctx.moveTo(from.x, from.y);
-      ctx.lineTo(to.x, to.y);
-      ctx.strokeStyle = `rgba(147,197,253,${alpha})`;
-      ctx.lineWidth = 0.6;
-      ctx.stroke();
-
-      // Traveling signal dot
-      const progress = ((t * c.speed + c.offset) % 1);
-      const sx = from.x + (to.x - from.x) * progress;
-      const sy = from.y + (to.y - from.y) * progress;
-      ctx.beginPath();
-      ctx.arc(sx, sy, 2, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(96,165,250,0.7)`;
-      ctx.fill();
+  function drawANN(t){
+    ann.connections.forEach(c=>{
+      const from=ann.nodes[c.from],to=ann.nodes[c.to];
+      ctx.beginPath();ctx.moveTo(from.x,from.y);ctx.lineTo(to.x,to.y);
+      ctx.strokeStyle=`rgba(147,197,253,${0.08+c.weight*0.1})`;ctx.lineWidth=0.6;ctx.stroke();
+      const progress=((t*c.speed+c.offset)%1);
+      const sx=from.x+(to.x-from.x)*progress,sy=from.y+(to.y-from.y)*progress;
+      ctx.beginPath();ctx.arc(sx,sy,2,0,Math.PI*2);ctx.fillStyle='rgba(96,165,250,0.7)';ctx.fill();
     });
-
-    // Draw nodes
-    ann.nodes.forEach(n => {
-      const activation = 0.4 + 0.6 * Math.abs(Math.sin(t * 0.8 + n.pulse));
-      const r = 5 + activation * 4;
-
-      // Glow
-      const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 2.5);
-      grd.addColorStop(0, `rgba(96,165,250,${activation * 0.4})`);
-      grd.addColorStop(1, 'rgba(96,165,250,0)');
-      ctx.beginPath(); ctx.arc(n.x, n.y, r * 2.5, 0, Math.PI*2);
-      ctx.fillStyle = grd; ctx.fill();
-
-      // Node circle
-      ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(30,58,95,0.85)`; ctx.fill();
-      ctx.strokeStyle = `rgba(96,165,250,${0.4 + activation * 0.5})`;
-      ctx.lineWidth = 1.5; ctx.stroke();
-
-      // Inner activation fill
-      ctx.beginPath(); ctx.arc(n.x, n.y, r * activation * 0.6, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(96,165,250,${activation * 0.5})`; ctx.fill();
+    ann.nodes.forEach(n=>{
+      const activation=0.4+0.6*Math.abs(Math.sin(t*0.8+n.pulse));
+      const r=5+activation*4;
+      const grd=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,r*2.5);
+      grd.addColorStop(0,`rgba(96,165,250,${activation*0.4})`);grd.addColorStop(1,'rgba(96,165,250,0)');
+      ctx.beginPath();ctx.arc(n.x,n.y,r*2.5,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);ctx.fillStyle='rgba(30,58,95,0.85)';ctx.fill();
+      ctx.strokeStyle=`rgba(96,165,250,${0.4+activation*0.5})`;ctx.lineWidth=1.5;ctx.stroke();
+      ctx.beginPath();ctx.arc(n.x,n.y,r*activation*0.6,0,Math.PI*2);ctx.fillStyle=`rgba(96,165,250,${activation*0.5})`;ctx.fill();
     });
-
-    // Layer labels
-    const labels = ['Input', 'Hidden', 'Hidden', 'Hidden', 'Output'];
-    ann.layers.forEach((count, li) => {
-      const x = ann.nodes.find(n => n.li === li)?.x;
-      if (!x) return;
-      ctx.fillStyle = 'rgba(147,197,253,0.35)';
-      ctx.font = '9px Arial';
-      ctx.textAlign = 'center';
-      ctx.fillText(labels[li] || 'Hidden', x, H * 0.5);
+    const labels=['Input','Hidden','Hidden','Hidden','Output'];
+    ann.layers.forEach((count,li)=>{
+      const x=ann.nodes.find(n=>n.li===li)?.x;if(!x)return;
+      ctx.fillStyle='rgba(147,197,253,0.35)';ctx.font='9px Arial';ctx.textAlign='center';
+      ctx.fillText(labels[li]||'Hidden',x,H*0.5);
     });
   }
 
-  // FEM stress elements scattered in background
-  const femElements = [];
-  function buildFEM() {
-    femElements.length = 0;
-    const count = 28;
-    for (let i = 0; i < count; i++) {
-      femElements.push({
-        x: Math.random() * W,
-        y: Math.random() * H * 0.75,
-        size: 18 + Math.random() * 40,
-        stress: Math.random(), // 0=blue(low), 1=red(high)
-        drift: Math.random() * Math.PI * 2,
-        speed: 0.3 + Math.random() * 0.4
-      });
-    }
+  // FEM
+  const femElements=[];
+  function buildFEM(){
+    femElements.length=0;
+    for(let i=0;i<28;i++)femElements.push({x:Math.random()*W,y:Math.random()*H*0.75,size:18+Math.random()*40,stress:Math.random(),drift:Math.random()*Math.PI*2,speed:0.3+Math.random()*0.4});
   }
-  buildFEM();
-  window.addEventListener('resize', buildFEM);
+  buildFEM();window.addEventListener('resize',buildFEM);
 
-  function stressColor(s, alpha) {
-    // Blue -> Cyan -> Green -> Yellow -> Red (FEM stress colormap)
-    let r, g, b;
-    if (s < 0.25)      { r=0;   g=Math.round(s*4*255); b=255; }
-    else if (s < 0.5)  { r=0;   g=255; b=Math.round((1-(s-0.25)*4)*255); }
-    else if (s < 0.75) { r=Math.round((s-0.5)*4*255); g=255; b=0; }
-    else               { r=255; g=Math.round((1-(s-0.75)*4)*255); b=0; }
+  function stressColor(s,alpha){
+    let r,g,b;
+    if(s<0.25){r=0;g=Math.round(s*4*255);b=255;}
+    else if(s<0.5){r=0;g=255;b=Math.round((1-(s-0.25)*4)*255);}
+    else if(s<0.75){r=Math.round((s-0.5)*4*255);g=255;b=0;}
+    else{r=255;g=Math.round((1-(s-0.75)*4)*255);b=0;}
     return `rgba(${r},${g},${b},${alpha})`;
   }
 
-  function drawFEM(t) {
-    femElements.forEach((el, idx) => {
-      const pulse = Math.sin(t * el.speed + el.drift) * 0.15;
-      const stress = (el.stress + pulse + 1) % 1;
-      const s = el.size;
-      const x = el.x + Math.sin(t * 0.3 + idx) * 6;
-      const y = el.y + Math.cos(t * 0.25 + idx) * 4;
-
-      // Draw quad FEM element
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.rotate(Math.sin(t * 0.1 + idx) * 0.08);
-
-      // Fill with stress color
-      ctx.beginPath();
-      ctx.rect(-s/2, -s/2, s, s);
-      ctx.fillStyle = stressColor(stress, 0.12);
-      ctx.fill();
-
-      // Element border
-      ctx.strokeStyle = stressColor(stress, 0.3);
-      ctx.lineWidth = 0.8;
-      ctx.stroke();
-
-      // Node dots at corners
-      [[-s/2,-s/2],[s/2,-s/2],[s/2,s/2],[-s/2,s/2]].forEach(([nx,ny]) => {
-        ctx.beginPath();
-        ctx.arc(nx, ny, 2, 0, Math.PI*2);
-        ctx.fillStyle = stressColor(stress, 0.6);
-        ctx.fill();
-      });
-
-      // Cross lines (FEM internal divisions)
-      ctx.strokeStyle = stressColor(stress, 0.15);
-      ctx.lineWidth = 0.5;
-      ctx.beginPath(); ctx.moveTo(-s/2, 0); ctx.lineTo(s/2, 0); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(0, -s/2); ctx.lineTo(0, s/2); ctx.stroke();
-
+  function drawFEM(t){
+    femElements.forEach((el,idx)=>{
+      const pulse=Math.sin(t*el.speed+el.drift)*0.15;
+      const stress=(el.stress+pulse+1)%1;
+      const s=el.size,x=el.x+Math.sin(t*0.3+idx)*6,y=el.y+Math.cos(t*0.25+idx)*4;
+      ctx.save();ctx.translate(x,y);ctx.rotate(Math.sin(t*0.1+idx)*0.08);
+      ctx.beginPath();ctx.rect(-s/2,-s/2,s,s);ctx.fillStyle=stressColor(stress,0.12);ctx.fill();
+      ctx.strokeStyle=stressColor(stress,0.3);ctx.lineWidth=0.8;ctx.stroke();
+      [[-s/2,-s/2],[s/2,-s/2],[s/2,s/2],[-s/2,s/2]].forEach(([nx,ny])=>{ctx.beginPath();ctx.arc(nx,ny,2,0,Math.PI*2);ctx.fillStyle=stressColor(stress,0.6);ctx.fill();});
+      ctx.strokeStyle=stressColor(stress,0.15);ctx.lineWidth=0.5;
+      ctx.beginPath();ctx.moveTo(-s/2,0);ctx.lineTo(s/2,0);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(0,-s/2);ctx.lineTo(0,s/2);ctx.stroke();
       ctx.restore();
     });
   }
 
-  function drawMesh(t) {
-    const cols = 18, rows = 8;
-    ctx.strokeStyle = 'rgba(99,179,237,0.18)';
-    ctx.lineWidth = 0.8;
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        const i = r * cols + c;
-        const n = nodes[i];
-        n.x = n.ox + Math.sin(t * 0.7 + i * 0.4) * 4;
-        n.y = n.oy + Math.cos(t * 0.5 + i * 0.3) * 3;
-        if (c < cols - 1) {
-          const n2 = nodes[i + 1];
-          ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(n2.x, n2.y); ctx.stroke();
-        }
-        if (r < rows - 1) {
-          const n2 = nodes[i + cols];
-          ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(n2.x, n2.y); ctx.stroke();
-        }
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, 1.5, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(147,197,253,0.35)';
-        ctx.fill();
-      }
+  // Ship mesh
+  const nodes=[];
+  function buildMesh(){
+    nodes.length=0;
+    const cols=18,rows=8;
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+      const tx=c/(cols-1),hull=Math.sin(Math.PI*tx);
+      const x=W*0.18+tx*W*0.64,baseY=H*0.22,hullH=H*0.22*hull,y=baseY+(r/(rows-1))*hullH;
+      nodes.push({x,y,ox:x,oy:y});
+    }
+  }
+  buildMesh();window.addEventListener('resize',buildMesh);
+
+  function drawMesh(t){
+    const cols=18,rows=8;
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+      const i=r*cols+c,n=nodes[i];
+      n.x=n.ox+Math.sin(t*0.7+i*0.4)*4;n.y=n.oy+Math.cos(t*0.5+i*0.3)*3;
+      ctx.strokeStyle='rgba(99,179,237,0.18)';ctx.lineWidth=0.8;
+      if(c<cols-1){const n2=nodes[i+1];ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(n2.x,n2.y);ctx.stroke();}
+      if(r<rows-1){const n2=nodes[i+cols];ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(n2.x,n2.y);ctx.stroke();}
+      ctx.beginPath();ctx.arc(n.x,n.y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(147,197,253,0.35)';ctx.fill();
     }
   }
 
-  function drawWaves(t) {
-    const numWaves = 5;
-    for (let w = 0; w < numWaves; w++) {
-      const waveY = H * (0.55 + w * 0.1);
-      const amp = 10 + w * 4;
-      const freq = 0.008 - w * 0.001;
-      const speed = t * (0.6 + w * 0.15);
-      const alpha = 0.06 + w * 0.04;
-      ctx.beginPath();
-      ctx.moveTo(0, waveY);
-      for (let x = 0; x <= W; x += 4) {
-        const y = waveY + Math.sin(x * freq + speed) * amp + Math.sin(x * freq * 1.7 + speed * 1.3) * (amp * 0.4);
-        ctx.lineTo(x, y);
-      }
-      ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath();
-      ctx.fillStyle = `rgba(37,99,168,${alpha})`;
-      ctx.fill();
-      // wave crest line
-      ctx.beginPath();
-      ctx.moveTo(0, waveY);
-      for (let x = 0; x <= W; x += 4) {
-        const y = waveY + Math.sin(x * freq + speed) * amp + Math.sin(x * freq * 1.7 + speed * 1.3) * (amp * 0.4);
-        ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = `rgba(147,197,253,${alpha + 0.08})`;
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
+  function drawWaves(t){
+    for(let w=0;w<5;w++){
+      const waveY=H*(0.55+w*0.1),amp=10+w*4,freq=0.008-w*0.001,speed=t*(0.6+w*0.15),alpha=0.06+w*0.04;
+      ctx.beginPath();ctx.moveTo(0,waveY);
+      for(let x=0;x<=W;x+=4){const y=waveY+Math.sin(x*freq+speed)*amp+Math.sin(x*freq*1.7+speed*1.3)*(amp*0.4);ctx.lineTo(x,y);}
+      ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fillStyle=`rgba(37,99,168,${alpha})`;ctx.fill();
+      ctx.beginPath();ctx.moveTo(0,waveY);
+      for(let x=0;x<=W;x+=4){const y=waveY+Math.sin(x*freq+speed)*amp+Math.sin(x*freq*1.7+speed*1.3)*(amp*0.4);ctx.lineTo(x,y);}
+      ctx.strokeStyle=`rgba(147,197,253,${alpha+0.08})`;ctx.lineWidth=1.2;ctx.stroke();
     }
   }
 
-  function animate() {
-    t += 0.018;
-    ctx.clearRect(0, 0, W, H);
-    // Background gradient
-    const grad = ctx.createLinearGradient(0, 0, W, H);
-    grad.addColorStop(0, '#0f1e35');
-    grad.addColorStop(0.5, '#1a2e4a');
-    grad.addColorStop(1, '#1e3a5f');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, H);
-
-    drawANN(t);
-    drawFEM(t);
-    drawMesh(t);
-    drawWaves(t);
+  function animate(){
+    t+=0.018;ctx.clearRect(0,0,W,H);
+    const grad=ctx.createLinearGradient(0,0,W,H);
+    grad.addColorStop(0,'#0f1e35');grad.addColorStop(0.5,'#1a2e4a');grad.addColorStop(1,'#1e3a5f');
+    ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+    drawANN(t);drawFEM(t);drawMesh(t);drawWaves(t);
     requestAnimationFrame(animate);
   }
   animate();
 </script>
+</body>
 </html>
